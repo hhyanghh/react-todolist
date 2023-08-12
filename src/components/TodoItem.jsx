@@ -27,14 +27,18 @@ const TodoItem = ({ todo, onCheck, onRemove, onImportant }) => {
 
   return (
     <Box css={ItemStyle}>
-      <Box onClick={() => onCheck(id)} css={ItemStyle}>
+      <Box
+        onClick={() => onCheck(id)}
+        css={ItemStyle}
+        style={{ cursor: "pointer" }}
+      >
         {checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
         <Typography css={checked && CheckedTextStyle}>{text}</Typography>
       </Box>
       <Box>
-        <IconButton onClick={() => onImportant(id)}>
+        {/* <IconButton onClick={() => onImportant(id)}>
           <GiRoundStar css={star && ImportantStyle} />
-        </IconButton>
+        </IconButton> */}
         <IconButton onClick={() => onRemove(id)}>
           <ImBin />
         </IconButton>

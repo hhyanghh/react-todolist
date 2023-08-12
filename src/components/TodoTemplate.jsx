@@ -8,8 +8,9 @@ const TodoTemplateStyle = css`
   width: 350px;
   padding: 40px 50px;
   margin: 150px auto 0;
-  background-color: #dde6ed;
+  background-color: #adc4ce;
   box-shadow: 10px 10px 10px #c1c0b9;
+  border-radius: 24px;
 `;
 
 const DateStyle = css`
