@@ -18,19 +18,22 @@ const CheckedTextStyle = css`
   text-decoration: line-through;
 `;
 
-const TodoItem = ({ todo, onCheck, onRemove }) => {
+const ImportantStyle = css`
+  color: #f7d060;
+`;
+
+const TodoItem = ({ todo, onCheck, onRemove, onImportant }) => {
   const { id, text, checked, star } = todo;
 
   return (
     <Box css={ItemStyle}>
-      {/* <div>체크박스 텍스트 별표아이콘 삭제아이콘</div> */}
-      <Box css={ItemStyle} onClick={() => onCheck(id)}>
+      <Box onClick={() => onCheck(id)} css={ItemStyle}>
         {checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
         <Typography css={checked && CheckedTextStyle}>{text}</Typography>
       </Box>
       <Box>
-        <IconButton>
-          <GiRoundStar />
+        <IconButton onClick={() => onImportant(id)}>
+          <GiRoundStar css={star && ImportantStyle} />
         </IconButton>
         <IconButton onClick={() => onRemove(id)}>
           <ImBin />
@@ -44,3 +47,4 @@ export default TodoItem;
 
 //ImCheckboxUnchecked
 //ImCheckboxChecked
+// style={{ order: star ? -1 : 0 }}

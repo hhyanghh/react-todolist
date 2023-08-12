@@ -28,14 +28,13 @@ const App = () => {
         id: nextId.current,
         text,
         checked: false,
+        star: false,
       };
       setTodos(todos.concat(todo));
       nextId.current++;
     },
     [todos]
   );
-
-  console.log(todos, "todos");
 
   const onCheck = useCallback(
     (id) => {
@@ -55,12 +54,29 @@ const App = () => {
     [todos]
   );
 
+  const onImportant = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, star: !todo.star } : todo
+        )
+      );
+    },
+    [todos]
+  );
+  console.log(todos, "todos");
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <TodoTemplate>
           <TodoWrite onAdd={onAdd} />
-          <TodoList todos={todos} onCheck={onCheck} onRemove={onRemove} />
+          <TodoList
+            todos={todos}
+            onCheck={onCheck}
+            onRemove={onRemove}
+            onImportant={onImportant}
+          />
         </TodoTemplate>
       </ThemeProvider>
     </>
