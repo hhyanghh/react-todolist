@@ -30,7 +30,7 @@ const MonthFontStyle = css`
 `;
 
 const TitleStyle = css`
-  color: #526d82;
+  color: #f1f0e8;
   font: italic 700 35px "Roboto Condensed";
   letter-spacing: -0.5px;
 `;
