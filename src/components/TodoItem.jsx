@@ -18,7 +18,7 @@ const CheckedTextStyle = css`
   text-decoration: line-through;
 `;
 
-const TodoItem = ({ todo, onCheck }) => {
+const TodoItem = ({ todo, onCheck, onRemove }) => {
   const { id, text, checked, star } = todo;
 
   return (
@@ -32,7 +32,7 @@ const TodoItem = ({ todo, onCheck }) => {
         <IconButton>
           <GiRoundStar />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => onRemove(id)}>
           <ImBin />
         </IconButton>
       </Box>

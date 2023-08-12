@@ -48,12 +48,19 @@ const App = () => {
     [todos]
   );
 
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id)); // 클릭되지 않은 나머지만 추출하여 새로운 배열 생성
+    },
+    [todos]
+  );
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <TodoTemplate>
           <TodoWrite onAdd={onAdd} />
-          <TodoList todos={todos} onCheck={onCheck} />
+          <TodoList todos={todos} onCheck={onCheck} onRemove={onRemove} />
         </TodoTemplate>
       </ThemeProvider>
     </>
