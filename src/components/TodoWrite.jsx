@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useCallback } from "react";
 import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
 import { TbSquareRoundedPlusFilled } from "react-icons/tb";
 import { css } from "@emotion/react";
 import { IconButton } from "@mui/material";
@@ -42,7 +41,7 @@ const TodoWrite = ({ onAdd }) => {
         onChange={handleChange}
         value={value}
       />
-      <IconButton>
+      <IconButton type="submit">
         <TbSquareRoundedPlusFilled css={ButtonStyle} />
       </IconButton>
     </form>

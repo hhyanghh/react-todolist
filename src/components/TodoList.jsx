@@ -5,7 +5,7 @@ const TodoList = ({ todos, onCheck }) => {
   return (
     <>
       {todos.map((todo) => (
-        <TodoItem todo={todo} onCheck={onCheck} />
+        <TodoItem todo={todo} onCheck={onCheck} key={todo.id} />
       ))}
     </>
   );

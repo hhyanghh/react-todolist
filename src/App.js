@@ -35,6 +35,8 @@ const App = () => {
     [todos]
   );
 
+  console.log(todos, "todos");
+
   const onCheck = useCallback(
     (id) => {
       setTodos(
